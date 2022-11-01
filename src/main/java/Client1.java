@@ -4,17 +4,18 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
-public class Client {
+
+public class Client1 {
     public static void main(String[] args) {
-        try (Socket clientSocket = new Socket("localhost", 8080);
-             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-             Scanner scanner = new Scanner(System.in);
-             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
-            String actualCity = in.readLine();
+        try (Socket clientSocket1 = new Socket("localhost", 8080);
+             PrintWriter out1 = new PrintWriter(clientSocket1.getOutputStream(), true);
+             Scanner scanner1 = new Scanner(System.in);
+             BufferedReader in1 = new BufferedReader(new InputStreamReader(clientSocket1.getInputStream()))) {
+            String actualCity = in1.readLine();
             System.out.println("Город, который озвучил игрок: " + actualCity);
             System.out.print("Введите название города: ");
-            out.println(scanner.nextLine());
-            String response = in.readLine();
+            out1.println(scanner1.nextLine());
+            String response = in1.readLine();
             System.out.println(response);
         } catch (IOException e) {
             throw new RuntimeException(e);
